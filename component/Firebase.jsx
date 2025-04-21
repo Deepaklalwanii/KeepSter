@@ -55,7 +55,6 @@ onAuthStateChanged(auth, async (user) => {
       snapshot.docs.forEach((doc) => {
         userNotes.push({ ...doc.data(), id: doc.id })
       })
-      console.log("User-specific notes:")
     })
   } else {
     console.log("User is signed out")

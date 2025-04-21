@@ -2,12 +2,10 @@ import { useState, useEffect } from 'react'
 import { useNavigate  } from 'react-router-dom'
 import { onAuthStateChanged } from 'firebase/auth'
 import auth from './Firebase'
-import TinyMce from './TinyMce'
+import QuillEditor from './QuillEditor'
 
 function Dashboard() {
   const [showInputs, setShowInputs] = useState(false)
-  const [content, setContent] = useState('')
-  const [notes, setNotes] = useState([])
   const [loading, setLoading] = useState(true) 
 
   const Navigation = useNavigate()  
@@ -29,8 +27,8 @@ function Dashboard() {
   }
   
   return (
-    <section className='py-15 dashboard-section'>
-      <TinyMce />
+    <section className='py-15 w-full dashboard-section'>
+      <QuillEditor />
     </section>
   )
 }

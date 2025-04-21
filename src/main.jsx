@@ -6,6 +6,7 @@ import App from './App.jsx';
 import Signin from '../component/Signin.jsx';
 import LoginPage from '../component/LoginPage.jsx';
 import Dashboard from '../component/Dashboard.jsx';
+import ForegetPassword from '../component/ForgetPassword.jsx';
 import ProtectedRoute from '../component/ProtectedRoute.jsx';
 
 const router = createBrowserRouter([
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: 'signup',
         element: <Signin />
+      },
+      {
+        path: 'forgetpassword',
+        element: <ForegetPassword />
       },
       {
         path: 'dashboard',

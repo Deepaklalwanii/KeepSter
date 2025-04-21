@@ -3,6 +3,7 @@ import auth from './Firebase'
 import { signInWithEmailAndPassword} from 'firebase/auth'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import ForgetPassword from './ForgetPassword'
 
 
 const  LoginPage = () => {
@@ -11,7 +12,11 @@ const  LoginPage = () => {
 const [email, setEmail] = useState('')
 const [password, setPassword] = useState('')   
 let navigate = useNavigate(); 
+let navigateToForgetpassword = useNavigate();
 
+const handleForgetPassword = () => {
+  navigateToForgetpassword('/forgetpassword')
+}
 
 const handleLogin = async (e) => {
     e.preventDefault();
@@ -58,7 +63,8 @@ const handleLogin = async (e) => {
      required/>
 
     <div className='flex gap-4 py-4 text-center items-center justify-center'>
-    <button className='submit-btn py-1.5 px-1.5  cursor-point' type="submit">SignIn</button>
+    <button className='submit-btn py-1.5 px-1.5  cursor-point' type="submit">Sign In</button>
+    <button className='submit-btn py-1.5 px-1.5 cursor-point' type="button" onClick={handleForgetPassword}>Forget Password?</button>
     </div>
 
     <p>Don't have an account?{' '}
