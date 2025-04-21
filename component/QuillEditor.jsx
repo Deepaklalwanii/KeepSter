@@ -10,7 +10,6 @@ const QuillEditor = () => {
   const quillRef = useRef(null);
   const [title, setTitle] = useState('');
 
-
   const db = getFirestore();
   const colRef = collection(db, 'keepSterData');
   const auth = getAuth();
