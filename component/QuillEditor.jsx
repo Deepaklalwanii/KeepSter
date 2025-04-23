@@ -66,7 +66,7 @@ const QuillEditor = () => {
 
   return (
     <>
-      <div className="editor-container" style={{ maxWidth: '800px', margin: 'auto' }}>
+      <div className="editor-container" style={{ maxWidth: '512px', margin: 'auto'}}>
         <input
           type="text"
           placeholder="Title"

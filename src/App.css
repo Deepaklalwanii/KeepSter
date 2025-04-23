@@ -126,8 +126,8 @@ title textarea{
     gap: 10px;
     font-family: "jost";
     border: 1px solid #787e86;
-    max-width: 297px;
-    max-height: 250px;
+    width: 250px;
+    height: 200px;
     padding: 15px 15px;
     scroll-behavior: smooth;
     border-radius: 10px;
@@ -139,8 +139,6 @@ title textarea{
     width: 100%;
     text-align: center;
 }
-
-
 
 .note::-webkit-scrollbar{
     display: none;
