@@ -13,6 +13,8 @@ function DeleteNote({ noteId }) {
     }
   };
 
+
+
   return (
     <>
       <i

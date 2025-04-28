@@ -59,8 +59,9 @@ const handleSignup = async (e) => {
   return (
     <>
     <div className='flex flex-col text-center items-center justify-center py-30 gap-8 '>
+      <div className='sining-container'>
 
-        <h1 className='font-bold tracking-wide  text-3xl'>Sign In- Your Thoughts Are Safe with Us</h1>
+        <h1 className='font-bold tracking-wide  text-3xl'>Create Account</h1>
         
         <form className='mb-none w-md signin-form' onSubmit={handleSignup}>
             <input className='mb-6 w-full outline-none'
@@ -91,6 +92,7 @@ const handleSignup = async (e) => {
           </Link>
         </p>
         </form>
+      </div>
     </div>
     </>
   )

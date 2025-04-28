@@ -44,7 +44,7 @@ const handleLogin = async (e) => {
   return (
     <>
     <div className='flex flex-col text-center items-center justify-center py-20 gap-8' onSubmit={handleLogin}>
-    <form className=' flex flex-col gap-5'>
+    <form className='login-container flex flex-col gap-5'>
 
     <h1 className='font-bold tracking-wide  text-3xl py-7 '>Good To See You Again!</h1>
 
@@ -62,9 +62,9 @@ const handleLogin = async (e) => {
      autoComplete='current-password'
      required/>
 
-    <div className='flex gap-4 py-4 text-center items-center justify-center'>
+    <div className='flex flex-col gap-4 py-4 text-center items-center justify-center'>
     <button className='submit-btn py-1.5 px-1.5  cursor-point' type="submit">Sign In</button>
-    <button className='submit-btn py-1.5 px-1.5 cursor-point' type="button" onClick={handleForgetPassword}>Forget Password?</button>
+    <span className=' py-1.5 px-1.5 cursor-pointer text-blue-500 hover:underline' type="button" onClick={handleForgetPassword}>Forget Password?</span>
     </div>
 
     <p>Don't have an account?{' '}

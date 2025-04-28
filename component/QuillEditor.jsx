@@ -80,6 +80,7 @@ const QuillEditor = () => {
             fontWeight: 'bold',
             border: '1px solid #ccc',
             borderRadius: '8px',
+            outline: 'none',
           }}
         />
 
