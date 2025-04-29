@@ -36,7 +36,6 @@ const colRef = collection(db, 'keepSterData')
 
 const navigate = useNavigate()
 
-// Auth listener + fetch user-specific data
 onAuthStateChanged(auth, async (user) => {
   if (user) {
     const uid = user.uid
@@ -78,7 +77,7 @@ export const addNote = async (noteData) => {
   if (user) {
     await addDoc(colRef, {
       ...noteData,
-      uid: user.uid, // Attach user's UID for filtering
+      uid: user.uid, 
       createdAt: new Date()
     })
   } else {
