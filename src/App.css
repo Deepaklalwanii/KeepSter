@@ -121,6 +121,9 @@ title textarea{
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
 }
+.modal-wrapper {
+    background: #000000b7;
+}
 
 .note title{
     font-size: 20px;

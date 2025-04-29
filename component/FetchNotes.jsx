@@ -11,6 +11,7 @@ import DeleteNote from "./DeleteNote";
 
 const FetchNotes = () => {
   const [notes, setNotes] = useState([]);
+  const [loading, setLoading] = useState(true);
   const db = getFirestore();
   const auth = getAuth();
 
@@ -18,7 +19,8 @@ const FetchNotes = () => {
     const unsubscribeAuth = onAuthStateChanged(auth, (user) => {
       if (!user) {
         console.log("User not logged in.");
-        setNotes([]); 
+        setNotes([]);
+        setLoading(false);
         return;
       }
 
@@ -33,9 +35,11 @@ const FetchNotes = () => {
             ...doc.data(),
           }));
           setNotes(notesData);
+          setLoading(false);
         },
         (error) => {
           console.error("Error fetching notes: ", error);
+          setLoading(false);
         }
       );
 
@@ -47,22 +51,25 @@ const FetchNotes = () => {
 
   return (
     <div className="noteContainer">
-      {notes.length > 0 ? (
+      {loading ? (
+        <div className="notes-empty">
+        <p className="bold">Your notes are loading...</p>
+        </div>
+      ) : notes.length > 0 ? (
         notes.map((note) => (
           <div className="note" key={note.id}
-          title={
-            note.createdAt?.toDate
-              ? new Date(note.createdAt.toDate()).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })
-              : "No date"
-          }
-          > 
-    
+            title={
+              note.createdAt?.toDate
+                ? new Date(note.createdAt.toDate()).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })
+                : "No date"
+            }
+          >
             <div className="noteHeader">
-             <strong><h4>{note.title}</h4> </strong>
+              <strong><h4>{note.title}</h4></strong>
               <div className="flex">
                 <DeleteNote noteId={note.id} />
               </div>
