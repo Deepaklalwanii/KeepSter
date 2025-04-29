@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
 import App from './App.jsx';
 import Signin from '../component/Signin.jsx';
+import VerifyEmail from '../component/VerifyEmail.jsx';
 import LoginPage from '../component/LoginPage.jsx';
 import Dashboard from '../component/Dashboard.jsx';
 import ForegetPassword from '../component/ForgetPassword.jsx';
@@ -30,6 +31,11 @@ const router = createBrowserRouter([
         path: 'forgetpassword',
         element: <ForegetPassword />
       },
+      {
+        path: 'verify-email',
+        element: <VerifyEmail />
+      },
+
       {
         path: 'dashboard',
         element: (

@@ -3,7 +3,6 @@ import auth from './Firebase'
 import { signInWithEmailAndPassword} from 'firebase/auth'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import ForgetPassword from './ForgetPassword'
 
 
 const  LoginPage = () => {

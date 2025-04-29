@@ -14,7 +14,6 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
 } from 'firebase/auth'
-import { useNavigate } from 'react-router-dom'
 
 // Firebase configuration
 const firebaseConfig = {
@@ -34,8 +33,7 @@ const db = getFirestore()
 const auth = getAuth()
 const colRef = collection(db, 'keepSterData')
 
-const navigate = useNavigate()
-
+// Auth listener + fetch user-specific data
 onAuthStateChanged(auth, async (user) => {
   if (user) {
     const uid = user.uid
@@ -58,9 +56,6 @@ onAuthStateChanged(auth, async (user) => {
         userNotes.push({ ...doc.data(), id: doc.id })
       })
     })
-
-    // Redirect to dashboard if user is logged in
-    navigate('/dashboard')
   } else {
     console.log("User is signed out")
   }
@@ -77,7 +72,7 @@ export const addNote = async (noteData) => {
   if (user) {
     await addDoc(colRef, {
       ...noteData,
-      uid: user.uid, 
+      uid: user.uid, // Attach user's UID for filtering
       createdAt: new Date()
     })
   } else {

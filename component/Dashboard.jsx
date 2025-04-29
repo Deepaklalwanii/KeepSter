@@ -1,37 +1,34 @@
-import { useState, useEffect } from 'react'
-import { useNavigate  } from 'react-router-dom'
-import { onAuthStateChanged } from 'firebase/auth'
-import auth from './Firebase'
-import QuillEditor from './QuillEditor'
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { onAuthStateChanged } from 'firebase/auth';
+import auth from './Firebase';
+import QuillEditor from './QuillEditor';
 
 function Dashboard() {
-  const [showInputs, setShowInputs] = useState(false)
-  const [loading, setLoading] = useState(true) 
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
-  const Navigation = useNavigate()  
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (!user) {
-        Navigation('/login')
+        navigate('/login');
+      } else if (!user.emailVerified) {
+        navigate('/verify-email');
+      } else {
+        setLoading(false);
       }
-      setLoading(false) 
-    })
-    return () => unsubscribe()
-  }, [Navigation])
+    });
 
-  if (loading) return <div>Loading...</div> 
-  
+    return () => unsubscribe();
+  }, [navigate]);
 
-  const handleClick = () => {
-    setShowInputs(true)
-  }
-  
+  if (loading) return <div>Loading...</div>;
+
   return (
     <section className='py-15 w-full dashboard-section'>
       <QuillEditor />
     </section>
-  )
+  );
 }
 
-
-export default Dashboard
+export default Dashboard;
