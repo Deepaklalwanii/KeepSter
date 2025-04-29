@@ -57,17 +57,7 @@ const FetchNotes = () => {
         </div>
       ) : notes.length > 0 ? (
         notes.map((note) => (
-          <div className="note" key={note.id}
-            title={
-              note.createdAt?.toDate
-                ? new Date(note.createdAt.toDate()).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })
-                : "No date"
-            }
-          >
+          <div className="note" key={note.id}>
             <div className="noteHeader">
               <strong><h4>{note.title}</h4></strong>
               <div className="flex">

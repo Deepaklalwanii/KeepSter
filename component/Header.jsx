@@ -32,7 +32,7 @@ const Header = () => {
     return (
         <>
         <header>
-            <div className='flex fixed w-full z-10 bg-[#fff]  text-center items-center justify-between gap-8 px-3 py-2 shadow-md'>
+            <div className='flex fixed w-full z-[10] bg-[#fff]  text-center items-center justify-between gap-8 px-3 py-2 shadow-md'>
               
               <div className='Logo-box flex gap-1.5 items-center cursor-pointer'>
               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="cornflowerblue" className="bi bi-bookmarks" viewBox="0 0 16 16">
