@@ -46,7 +46,7 @@ const handleLogin = async (e) => {
     <div className='flex flex-col text-center items-center justify-center py-20 gap-8' onSubmit={handleLogin}>
     <form className='login-container flex flex-col gap-5'>
 
-    <h1 className='font-bold tracking-wide  text-3xl py-7 '>Good To See You Again!</h1>
+    <h1 className='pages-heading font-bold tracking-wide  text-3xl py-7 '>Good To See You Again!</h1>
 
     <input className='outline-none'
      type="email"

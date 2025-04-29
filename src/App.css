@@ -159,3 +159,12 @@ title textarea{
     display: none;
     
 }
+
+
+@media(max-width: 768px){
+
+.pages-heading{
+    font-size: 20px;
+}
+    
+}
