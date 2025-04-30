@@ -59,13 +59,11 @@ const handleSignup = async (e) => {
   return (
     <>
     <div className='flex flex-col text-center items-center justify-center py-20 gap-8 h-screen'>
-      <div className='sining-container flex flex-col gap-5'>
 
-        
-        <form className='mb-none w-sm signin-form' onSubmit={handleSignup}>
+        <form className='sining-container flex flex-col gap-5' onSubmit={handleSignup}>
         <h1 className='pages-heading font-bold tracking-wide  text-3xl py-7'>Create Account</h1>
           
-            <input className='mb-6 w-full outline-none'
+            <input className='outline-none'
             type="text"
             id="username"
             name="username" 
@@ -74,7 +72,7 @@ const handleSignup = async (e) => {
             required/>
 
 
-            <input className='mb-6 w-full outline-none'
+            <input className='outline-none'
             type="password" 
             id="password" 
             name="password" 
@@ -93,7 +91,6 @@ const handleSignup = async (e) => {
           </Link>
         </p>
         </form>
-      </div>
     </div>
     </>
   )
