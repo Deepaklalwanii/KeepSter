@@ -61,7 +61,7 @@ const handleSignup = async (e) => {
     <div className='flex flex-col text-center items-center justify-center py-20 gap-8 h-screen'>
 
         <form className='sining-container flex flex-col gap-5' onSubmit={handleSignup}>
-        <h1 className='pages-heading font-bold tracking-wide  text-3xl py-7'>Create Account</h1>
+        <h1 className='pages-heading font-bold tracking-wide  text-3xl py-7 px-5'>Create Account</h1>
           
             <input className='outline-none'
             type="text"
