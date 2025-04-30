@@ -7,6 +7,7 @@ import Signin from '../component/Signin.jsx';
 import VerifyEmail from '../component/VerifyEmail.jsx';
 import LoginPage from '../component/LoginPage.jsx';
 import Dashboard from '../component/Dashboard.jsx';
+import { ThemeProvider } from '../context/ThemeContext.jsx';
 import ForegetPassword from '../component/ForgetPassword.jsx';
 import ProtectedRoute from '../component/ProtectedRoute.jsx';
 
@@ -50,6 +51,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} /> {/* ✅ Just this! */}
+    <ThemeProvider>   
+    <RouterProvider router={router} /> 
+    </ThemeProvider>
   </StrictMode>
 );

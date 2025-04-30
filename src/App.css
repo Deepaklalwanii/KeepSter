@@ -170,5 +170,28 @@ title textarea{
 .pages-heading{
     font-size: 20px;
 }
-    
+.logo {
+    font-size: larger;
+}
+.Logo-box svg{
+    width: 20px;
+    height: 20px;
+}
+
+.editor-container{
+    padding: 0 12px;
+    max-width: 430px;
+    max-height: 250px;
+}
+
+.noteContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 30px;
+}
+.note{
+    width: 200px;
+    height: 180px;
+}
 }

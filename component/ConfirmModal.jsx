@@ -14,13 +14,13 @@ const ConfirmModal = ({ isOpen, onClose, onConfirm }) => {
           </h2>
           <div className="flex justify-end gap-4">
             <button
-              className="font-light px-4 py-2 rounded hover:bg-gray-200 cursor-pointer"
+              className="font-light px-4 py-2 rounded hover:bg-[rgb(230,235,230)] cursor-pointer"
               onClick={onClose}
             >
               No
             </button>
             <button
-              className="font-light px-4 py-2 rounded hover:bg-gray-200 cursor-pointer"
+              className="font-light px-4 py-2 rounded hover:bg-[rgb(230,235,230)] cursor-pointer"
               onClick={onConfirm}
             >
               Yes
