@@ -23,13 +23,8 @@
 
 .sining-container{
     border-radius: 10px;
-    box-shadow: 0px 2px 10px #1d0d0d85;
-    padding: 38px 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    justify-content: center;
-    align-items: center;
+    box-shadow: 0px 2px 12px #1d0d0d85;
+    padding: 13px 30px;
 }
 
 
