@@ -16,9 +16,7 @@ const FetchNotes = () => {
   const [loading, setLoading] = useState(true);
   const [editNoteId, setEditNoteId] = useState(null);
   const [editTitle, setEditTitle] = useState("");
-  const [editContent, setEditContent] = useState("");
   const contentRef = useRef(null);
-
   const db = getFirestore();
   const auth = getAuth();
 
@@ -58,23 +56,34 @@ const FetchNotes = () => {
   const handleEdit = (note) => {
     setEditNoteId(note.id);
     setEditTitle(note.title);
-    setEditContent(note.content);
+
+    // Delay ensures DOM is ready before setting HTML
+    setTimeout(() => {
+      if (contentRef.current) {
+        contentRef.current.innerHTML = note.content;
+        contentRef.current.focus();
+      }
+    }, 0);
   };
 
   const handleCancelEdit = () => {
     setEditNoteId(null);
     setEditTitle("");
-    setEditContent("");
+    if (contentRef.current) {
+      contentRef.current.innerHTML = "";
+    }
   };
 
   const handleSaveEdit = async () => {
-    if (!editTitle.trim() || !editContent.trim()) return;
+    const updatedContent = contentRef.current?.innerHTML || "";
+
+    if (!editTitle.trim() || !updatedContent.trim()) return;
 
     const noteRef = doc(db, "keepSterData", editNoteId);
     try {
       await updateDoc(noteRef, {
         title: editTitle,
-        content: editContent,
+        content: updatedContent,
       });
       handleCancelEdit();
     } catch (err) {
@@ -92,43 +101,43 @@ const FetchNotes = () => {
         notes.map((note) => (
           <div className="note" key={note.id}>
             {editNoteId === note.id ? (
-          <>
-          <div className="noteHeader">
-            <input
-              type="text"
-              value={editTitle}
-              onChange={(e) => setEditTitle(e.target.value)}
-              className="edit-title-input"
-            />
-            <div className="flex gap-1.5">
-              <button onClick={handleSaveEdit}>
-                <i className="bi bi-check2"></i>
-              </button>
-              <button onClick={handleCancelEdit}>
-                <i className="bi bi-x"></i>
-              </button>
-            </div>
-          </div>
-          <div
-            className="noteContent editable-content"
-            contentEditable
-            ref={contentRef}
-            suppressContentEditableWarning={true}
-          >
-            {/* This sets the initial content only once */}
-            {editContent === "" ? null : (
-              <div dangerouslySetInnerHTML={{ __html: editContent }} />
-            )}
-          </div>
-        </>
-             ) : (
+              <>
+                <div className="noteHeader">
+                  <input
+                    type="text"
+                    value={editTitle}
+                    onChange={(e) => setEditTitle(e.target.value)}
+                    className="edit-title-input"
+                  />
+                  <div className="flex gap-1.5">
+                    <button className="cursor-pointer" onClick={handleSaveEdit}>
+                      <i className="bi bi-check2"></i>
+                    </button>
+                    <button className="cursor-pointer" onClick={handleCancelEdit}>
+                      <i className="bi bi-x"></i>
+                    </button>
+                  </div>
+                </div>
+                <div
+                  className="noteContent editable-content"
+                  contentEditable
+                  ref={contentRef}
+                  suppressContentEditableWarning={true}
+                />
+              </>
+            ) : (
               <>
                 <div className="noteHeader">
                   <strong>
                     <h4>{note.title}</h4>
                   </strong>
                   <div className="flex">
-                    <button className="cursor-pointer"  onClick={() => handleEdit(note)}><i class="bi bi-pen"></i></button>
+                    <button
+                      className="cursor-pointer"
+                      onClick={() => handleEdit(note)}
+                    >
+                      <i className="bi bi-pen"></i>
+                    </button>
                     <DeleteNote noteId={note.id} />
                   </div>
                 </div>
