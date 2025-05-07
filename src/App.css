@@ -188,8 +188,8 @@ title textarea{
     padding-top: 30px;
 }
 .note{
-    width: 200px;
-    height: 180px;
+    width: 100%;
+    height: 200px;
 }
 
 .sinin-form{
